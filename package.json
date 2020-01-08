@@ -5,21 +5,12 @@
   "esy": {
     "build": "dune build -p <PACKAGE_NAME>",
     "buildDev": "pesy",
-    "release": {
-      "releasedBinaries": [
-        "TennisKataApp.exe"
-      ]
-    }
+    "release": { "releasedBinaries": [ "TennisKataApp.exe" ] }
   },
   "buildDirs": {
-    "lib": {
-      "name": "tennis_kata.lib",
-      "namespace": "TennisKata"
-    },
+    "lib": { "name": "tennis_kata.lib", "namespace": "TennisKata" },
     "bin": {
-      "require": [
-        "tennis_kata.lib"
-      ],
+      "require": [ "tennis_kata.lib" ],
       "main": "TennisKataApp",
       "name": "TennisKataApp.exe"
     }
@@ -29,8 +20,9 @@
     "test": "esy x TestTennisKata.exe"
   },
   "dependencies": {
-    "@opam/dune": ">=1.6.0",
     "@esy-ocaml/reason": "*",
+    "@opam/dune": ">=1.6.0",
+    "@reason-native/rely": "^3.1.0",
     "ocaml": "^4.4.0"
   },
   "devDependencies": {

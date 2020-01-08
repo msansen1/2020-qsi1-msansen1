@@ -13,8 +13,8 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae",
-        "@esy-ocaml/reason@3.5.2@d41d8cd9"
+        "ocaml@4.7.1004@d41d8cd9", "@reason-native/rely@3.1.0@d41d8cd9",
+        "@opam/dune@opam:1.11.4@a7ccb7ae", "@esy-ocaml/reason@3.5.2@d41d8cd9"
       ],
       "devDependencies": [
         "refmterr@3.3.0@d41d8cd9", "pesy@0.4.4@d41d8cd9",
