@@ -121,6 +121,8 @@ describe("Test Game transitions", ({test}) => {
       /*Test d'un score forty*/
       let fortyFifteen = {player: PlayerOne, otherPlayerPoint: Fifteen};
       expect.equal(string_of_score(Forty(fortyFifteen)),  "40/15");
+      let fifteenForty = {player: PlayerTwo, otherPlayerPoint: Fifteen};
+      expect.equal(string_of_score(Forty(fifteenForty)),  "15/40");
       /*Test d'un score Deuce*/
       expect.equal(string_of_score(Deuce),  "40a");
       /*Test d'un score Advantage*/

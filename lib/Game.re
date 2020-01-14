@@ -111,8 +111,12 @@ switch point {
 let string_of_score: score => string = score =>
 switch score { 
   | Points(pointsData) => string_of_point(pointsData.playerOne) ++"/"++string_of_point(pointsData.playerTwo) 
-  | Forty(fortyData) => fortyData.player === PlayerOne ? "40/"++string_of_point(fortyData.otherPlayerPoint)  : string_of_point(fortyData.otherPlayerPoint)++"/40"
   | Deuce => "40a"
   | Advantage(player) => "advantage in "++string_of_player(player);
   | Game(player) => "Game for "++string_of_player(player);
+  | Forty(fortyData) => 
+      switch fortyData.player { 
+        | PlayerOne => "40/"++string_of_point(fortyData.otherPlayerPoint)
+        | PlayerTwo => string_of_point(fortyData.otherPlayerPoint)++"/40"
+        };
 };
