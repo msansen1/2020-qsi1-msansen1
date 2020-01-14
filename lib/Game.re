@@ -59,3 +59,38 @@ current.player == winner ?
     | None => Deuce
     }
   );
+
+let pointTo = (player, point, current) =>
+  switch player {
+  | PlayerOne => {...current, playerOne: point}
+  | PlayerTwo => {...current, playerTwo: point}
+  };
+
+let pointFor = (player, current) =>
+  switch player {
+  | PlayerOne => current.playerOne
+  | PlayerTwo => current.playerTwo
+  };
+
+let scoreWhenPoints = (current, winner) =>
+  switch (current |> pointFor(winner) |> incrementPoint) {
+  | Some(np) => Points(pointTo(winner, np, current))
+  | None =>
+    Forty({
+      player: winner,
+      otherPlayerPoint: current |> pointFor(other(winner))
+    })
+};
+
+let scoreWhenGame = winner => Game(winner);
+
+let score = (current, winner) =>
+switch current {
+| Points(p) => scoreWhenPoints(p, winner)
+| Forty(f) => scoreWhenForty(f, winner)
+| Deuce => scoreWhenDeuce(winner)
+| Advantage(a) => scoreWhenAdvantage(a, winner)
+| Game(g) => scoreWhenGame(g)
+};
+
+let newGame = Points({playerOne: Love, playerTwo: Love});
