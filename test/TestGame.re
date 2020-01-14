@@ -97,4 +97,37 @@ describe("Test Game transitions", ({test}) => {
     );
   });
 
+  test(
+    "Player to string",
+    ({expect}) => {
+      expect.equal( string_of_player(PlayerOne),"Player One");
+      expect.equal( string_of_player(PlayerTwo),"Player Two");
+  });
+
+  test(
+    "Point to string",
+    ({expect}) => {
+      expect.equal(string_of_point(Love),"0");
+      expect.equal(string_of_point(Fifteen),"15");
+      expect.equal(string_of_point(Thirty),"30");
+  });
+
+  test(
+    "Point to string",
+    ({expect}) => {
+      /*Test d'un score simple*/
+      let thirtyFifteen = {playerOne: Thirty, playerTwo: Fifteen};
+      expect.equal(string_of_score(Points(thirtyFifteen)),"30/15");
+      /*Test d'un score forty*/
+      let fortyFifteen = {player: PlayerOne, otherPlayerPoint: Fifteen};
+      expect.equal(string_of_score(Forty(fortyFifteen)),  "40/15");
+      /*Test d'un score Deuce*/
+      expect.equal(string_of_score(Deuce),  "40a");
+      /*Test d'un score Advantage*/
+      expect.equal(string_of_score(Advantage(PlayerOne)),  "advantage in Player One");
+      /*Test d'un score Jeu*/
+      expect.equal(string_of_score(Game(PlayerOne)),  "Game for Player One");
+      expect.equal(string_of_score(Game(PlayerTwo)),  "Game for Player Two");
+  });
+
 });
